@@ -1,22 +1,19 @@
+/* STYLE STAGE CHANGES: 1-26 */
 @charset "UTF-8";
 
-/* 1. Changed the background color to black and text to white for dark theme */
+/* 1. Updated color scheme with blue, red, yellow, and black background */
 :root {
-  --color-primary: #3a00ff;
-  --color-primary-alt: #6f6ffd;
-  --color-secondary: #d42257;
-  --color-background: #000000;  /* Changed from original color to black */
-  --color-text: #ffffff;        /* Changed to white for better contrast */
-  --color-light: #fff;
-  --color-anchor: #3a00ff;
-  --font-family: "Baloo 2", sans-serif;
-  --font-weight-strong: 500;
-  --font-size-h1: 6rem;
-  --font-size-h2: 3rem;
-  --font-size-h3: 2rem;
-  --font-size-h4: 1.35rem;
-  --font-size-text: 1.15rem;
-  --border-radius: 8px;
+  --color-blue: #007bff;
+  --color-red: #ff3b30;
+  --color-yellow: #ffd700;
+  --color-background: #000000;
+  --color-text: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.8);
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --spacing-unit: 1rem;
+  --border-radius: 4px;
 }
 
 @font-face {
@@ -26,6 +23,7 @@
   src: local("Baloo 2 Regular"), local("Baloo-2-Regular"), url("../../fonts/baloo-2-v1-latin-regular.woff2") format("woff2");
   font-display: swap;
 }
+
 @font-face {
   font-family: "Baloo 2";
   font-style: normal;
@@ -260,335 +258,217 @@ article,
   list-style: none;
 }
 
-/* 2. Redesigned Style Stage header design with glowing text and gradient */
-header {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(45deg, #000000, #1a1a1a);
-  border-bottom: none;
-  margin-bottom: 2rem;
-  position: relative;
+/* 2. Body styles with black background */
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
 }
 
-/* 3. topped it off with a glowing gradient text effect to main title */
+/* 3. Header with blue accent */
+header {
+  position: relative;
+  text-align: center;
+  padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+  background-color: rgba(255, 215, 0, 0.1);
+  color: var(--color-text);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  border-bottom: 3px solid var(--color-yellow);
+}
+
 header h1 {
-  font-size: clamp(4rem, 10vw, 7rem);
-  margin-bottom: 0.5rem;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 8px;
-  text-shadow: 
-    0 0 20px rgba(255, 255, 255, 0.5),
-    0 0 40px rgba(0, 255, 157, 0.3),
-    0 0 60px rgba(0, 255, 157, 0.2);
+  font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 900;
-  background: linear-gradient(120deg, #ffffff, #00ff9d);
+  margin-bottom: var(--spacing-unit);
+  color: var(--color-yellow);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.4),
+    0 0 40px rgba(255, 215, 0, 0.2);
+  background: linear-gradient(
+    135deg,
+    var(--color-yellow),
+    #ffffff
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  position: relative;
 }
 
-/* 4. Added glowing underline effect after the title */
 header h1::after {
   content: '';
   position: absolute;
-  bottom: -1rem;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60%;
+  width: 100px;
   height: 4px;
-  background: linear-gradient(90deg, 
-    rgba(255, 255, 255, 0),
-    #ffffff,
-    #00ff9d,
-    #ffffff,
-    rgba(255, 255, 255, 0)
+  background: linear-gradient(
+    90deg,
+    var(--color-blue),
+    var(--color-yellow),
+    var(--color-red)
   );
-  box-shadow: 
-    0 0 20px rgba(255, 255, 255, 0.5),
-    0 0 40px rgba(0, 255, 157, 0.3),
-    0 0 60px rgba(0, 255, 157, 0.2);
-  animation: glow 3s ease-in-out infinite;
+  border-radius: var(--border-radius);
 }
 
-/* 5. Enhanced subtitle styling */
 header h2 {
   font-size: clamp(1.2rem, 3vw, 1.8rem);
-  color: #fff;
-  font-weight: 500;
-  max-width: 800px;
-  margin: 2rem auto 0;
-  line-height: 1.6;
-  text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+  font-weight: 700;
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--color-text);
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
 }
 
-/* 6. Added glow animation keyframes */
-@keyframes glow {
-  0%, 100% {
-    opacity: 0.8;
-    box-shadow: 
-      0 0 20px rgba(255, 255, 255, 0.5),
-      0 0 40px rgba(0, 255, 157, 0.3),
-      0 0 60px rgba(0, 255, 157, 0.2);
-  }
-  50% {
-    opacity: 1;
-    box-shadow: 
-      0 0 30px rgba(255, 255, 255, 0.7),
-      0 0 60px rgba(0, 255, 157, 0.5),
-      0 0 90px rgba(0, 255, 157, 0.3);
-  }
-}
-
-/* 7. Added responsive adjustments for mobile */
-@media (max-width: 768px) {
-  header {
-    padding: 3rem 1rem;
-  }
-  
-  header h1::after {
-    width: 90%;
-  }
+/* 4. Navigation with yellow accents */
+nav {
+  padding: var(--spacing-unit);
+  background-color: rgba(255, 215, 0, 0.1);
+  border-bottom: 1px solid var(--color-yellow);
 }
 
 nav ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: var(--spacing-unit);
+  list-style: none;
+  padding: 0;
   margin: 0;
-  padding: 0;
-  list-style: none;
-  gap: var(--spacing-md);
 }
+
 nav ul a {
-  display: inline-grid;
-  padding: 0.5rem;
-  color: var(--color-light);
-  font-size: 1.25rem;
+  color: var(--color-yellow);
   text-decoration: none;
-  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
+nav ul a:hover {
+  color: var(--color-text);
+  background-color: var(--color-yellow);
+  border-radius: var(--border-radius);
+}
+
+/* 5. Main content with mixed accents */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: calc(var(--spacing-unit) * 2);
+}
+
+article {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 2);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 6. Headings with color accents */
+h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--color-red);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(255, 59, 48, 0.3);
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-blue);
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  text-transform: uppercase;
   letter-spacing: 1px;
-}
-nav ul a::before {
-  width: 100%;
-  height: 0.33em;
-  background-color: var(--color-light);
-  opacity: 0.2;
-  content: "";
-}
-nav ul a:hover::before, nav ul a:focus::before {
-  opacity: 1;
-}
-nav ul li {
-  margin: 0.25rem;
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
 }
 
-#about section:nth-child(2) {
-  position: relative;
-}
-#about section:nth-child(2) p:nth-of-type(2) {
-  align-self: center;
-  margin-top: 2rem;
-  color: var(--color-secondary);
-  font-size: 1.5em;
-  font-weight: var(--font-weight-strong);
-  text-align: center;
-}
-#about section:nth-child(2) ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 1rem 0 2rem;
-  padding: 0;
-  list-style: none;
-}
-#about section:nth-child(2) ul li {
-  margin: 0.25em;
-  padding: 0.25em 0.5em;
-  background-color: var(--color-light);
-}
-#about section:nth-child(2)::before {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  width: 100%;
-  height: 0;
-  padding-bottom: 100%;
-  transform: translate(-50%, -50%);
-  transition: 300ms transform ease-in;
-  background-image: radial-gradient(rgba(255, 0, 0, 0) 20%, #b3f8f1 20%, #b3f8f1 25%, rgba(255, 0, 0, 0) 25%, rgba(255, 0, 0, 0) 30%, #b3f8f1 30%, #b3f8f1 40%, rgba(255, 0, 0, 0) 40%, rgba(255, 0, 0, 0) 45%, #b3f8f1 45%, #b3f8f1 50%, rgba(255, 0, 0, 0) 50%);
-  opacity: 0.8;
-  content: "";
-  z-index: -1;
-}
-@media (max-width: 35rem) {
-  #about section:nth-child(2)::before {
-    transform: scale(2) translate(-25%, -25%);
-  }
-}
-
-#guidelines h3 {
-  display: inline-block;
-  transform: rotate(-8deg) translateX(-10%);
-  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
-}
-@supports (background-clip: text) or (-webkit-background-clip: text) {
-  #guidelines h3 {
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
-@media (min-width: 120ch) {
-  #guidelines h3 {
-    transform: rotate(-8deg) translateX(-30%);
-  }
-}
-@supports (background-clip: text) or (-webkit-background-clip: text) {
-  #guidelines p:nth-of-type(2) {
-    position: relative;
-  }
-  #guidelines p:nth-of-type(2)::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: rotate(4deg) translate(4.75rem, -3.5rem);
-    transform-origin: left center;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: var(--color-primary-alt);
-    font-size: 0.9em;
-    font-weight: normal;
-    content: "← Whoa, text gradients!";
-  }
-}
-#guidelines .container > a {
-  align-self: center;
-}
-
-#contribute {
-  background: repeating-linear-gradient(-45deg, transparent, transparent 10px, #b3f8f1 10px, #b3f8f1 18px);
-}
-#contribute section {
-  padding: 2rem;
-  background-color: var(--color-background);
-}
-#contribute section:nth-child(2) {
-  padding-top: 0;
-}
-
-#files {
-  display: grid;
-  place-content: center;
-  margin: 5vh auto;
-  text-align: center;
-}
-#files h3 {
-  height: 0;
-  opacity: 0;
-}
-#files .container {
-  display: inline-block;
-  padding: 5vmin;
-  outline: 4px dashed var(--color-secondary);
-  background-color: var(--color-background);
-  text-align: center;
-}
-#files .container a:not(:last-child) {
-  margin: 0.5rem;
-}
-#files .container a:not(:last-child):not(.link-codepen) {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-}
-
-.features {
-  position: relative;
-  width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
-  /*! 
-    * SVGs from Hero Patterns
-    * @link http://www.heropatterns.com/
-    */
-}
-.features li {
-  display: grid;
-  position: relative;
-  place-content: center;
-  min-height: 12rem;
-  padding: 1rem;
-  color: var(--color-light);
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.features li > span {
-  display: grid;
-  place-content: center;
-  padding: 0.5em;
-  grid-gap: 0.5rem;
-  border: 1px solid var(--color-light);
-  background-color: var(--color-secondary);
-  line-height: 1.1;
-}
-.features li > span a {
-  color: inherit;
-  font-size: 1.3rem;
-  font-weight: var(--font-weight-strong);
+/* 7. Links with yellow accent */
+a {
+  color: var(--color-yellow);
   text-decoration: none;
-}
-.features li > span a::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-}
-.features li > span span:nth-child(2) {
-  position: relative;
+  transition: color 0.2s ease;
 }
 
-#styles {
-  margin: 5vh 0 20vh;
+a:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* 8. Buttons with color variations */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-blue);
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--color-yellow);
+  color: var(--color-background);
+}
+
+.button.red {
+  background-color: var(--color-red);
+}
+
+/* 9. Footer with red accent */
+.page-footer {
+  background-color: rgba(255, 59, 48, 0.1);
+  color: var(--color-text);
+  padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+  margin-top: calc(var(--spacing-unit) * 4);
   text-align: center;
-}
-#styles h2 {
-  color: var(--color-primary);
+  border-top: 3px solid var(--color-red);
 }
 
-#styles .features li,
-.features.patterned li {
-  background-color: var(--color-secondary);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+.page-footer a {
+  color: var(--color-red);
 }
-@media (min-width: 515px) and (max-width: 765px) {
-  #styles .features li:nth-last-child(1):nth-child(odd),
-  .features.patterned li:nth-last-child(1):nth-child(odd) {
-    grid-column: span 2;
-  }
+
+/* 10. Blockquote with mixed colors */
+blockquote {
+  border-left: 4px solid var(--color-yellow);
+  margin: var(--spacing-unit) 0;
+  padding: var(--spacing-unit);
+  background-color: rgba(255, 215, 0, 0.1);
+  font-style: italic;
 }
-#styles .features li:nth-child(2),
-.features.patterned li:nth-child(2) {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='24' viewBox='0 0 88 24'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='autumn' fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M10 0l30 15 2 1V2.18A10 10 0 0 0 41.76 0H39.7a8 8 0 0 1 .3 2.18v10.58L14.47 0H10zm31.76 24a10 10 0 0 0-5.29-6.76L4 1 2 0v13.82a10 10 0 0 0 5.53 8.94L10 24h4.47l-6.05-3.02A8 8 0 0 1 4 13.82V3.24l31.58 15.78A8 8 0 0 1 39.7 24h2.06zM78 24l2.47-1.24A10 10 0 0 0 86 13.82V0l-2 1-32.47 16.24A10 10 0 0 0 46.24 24h2.06a8 8 0 0 1 4.12-4.98L84 3.24v10.58a8 8 0 0 1-4.42 7.16L73.53 24H78zm0-24L48 15l-2 1V2.18A10 10 0 0 1 46.24 0h2.06a8 8 0 0 0-.3 2.18v10.58L73.53 0H78z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+/* 11. List items with colored bullets */
+ul li::marker {
+  color: var(--color-blue);
 }
-#styles .features li:nth-child(3),
-.features.patterned li:nth-child(3) {
-  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+ol li::marker {
+  color: var(--color-red);
 }
-#styles .features::after,
-.features.patterned::after {
-  position: absolute;
-  bottom: -4.5em;
-  width: 10ch;
-  padding-top: 3em;
-  transform: rotate(-15deg);
-  transform-origin: bottom right;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 199.1 111.3'%3E%3Cpath fill='%236f6ffd' d='M118 77a77 77 0 00-2-18c-2-4-3-9-3-13a29 29 0 011-12 19 19 0 017-9c4-3 8-4 13-3a14 14 0 018 7 31 31 0 012 5 75 75 0 005 10 47 47 0 002 5 17 17 0 003 3c4 4 8 4 13 0a15 15 0 005-8 37 37 0 001-7l1-11a18 18 0 014-11 2 2 0 000-3l-3-3-2-3a2 2 0 011-2 11 11 0 012-1l19-3c4 0 5 1 3 5l-7 16c-1 3-2 3-5 1l-4-5a1 1 0 00-1 0 9 9 0 00-3 5 23 23 0 00-1 6l-1 11a26 26 0 01-1 7 18 18 0 01-8 10c-5 3-9 3-13 0a20 20 0 01-6-6 68 68 0 01-6-13l-2-4a18 18 0 00-2-4 10 10 0 00-14-2 15 15 0 00-4 4 19 19 0 00-3 9 32 32 0 000 11l2 6a78 78 0 012 27 32 32 0 01-4 15 24 24 0 01-11 9 33 33 0 01-19 3 16 16 0 01-13-9 29 29 0 01-3-11 70 70 0 012-18l2-14a33 33 0 000-14c-1-4-4-7-8-7-7-1-14 1-19 6a34 34 0 00-6 9 59 59 0 00-4 10l-3 12-2 6a26 26 0 01-5 8 17 17 0 01-16 6 26 26 0 01-10-4 7 7 0 01-2-1 2 2 0 010-2 2 2 0 012 0l3 1a22 22 0 0010 3 13 13 0 009-4 22 22 0 005-6 41 41 0 003-8l3-12a59 59 0 015-13 31 31 0 017-9c6-5 14-7 22-5a12 12 0 019 7 21 21 0 011 7 57 57 0 01-2 17 132 132 0 00-2 16 37 37 0 000 13 27 27 0 002 5 13 13 0 0011 8 30 30 0 0016-3 22 22 0 0010-10c3-4 3-9 4-13v-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 90%;
-  color: var(--color-primary-alt);
-  font-size: 0.9rem;
-  content: "Grid FTW!";
+
+/* 12. Form elements with accent colors */
+input, 
+button, 
+textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-blue);
+  color: var(--color-text);
+}
+
+input:focus, 
+textarea:focus {
+  border-color: var(--color-yellow);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
 }
 
 .profile {
@@ -600,9 +480,10 @@ nav ul li {
   background-color: rgba(255, 255, 255, 0.05);
 }
 .profile h4 {
-  margin: 0;
-  color: var(--color-secondary);
-  text-align: center;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
 }
 .profile .container {
   display: grid;
@@ -782,11 +663,46 @@ nav ul li {
 }
 
 .link-allstyles {
-  font-size: var(--font-size-h4);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 3.5rem;
+  margin: 0 auto;
+  background: linear-gradient(
+    45deg,
+    var(--color-blue),
+    var(--color-yellow)
+  );
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  white-space: nowrap;
 }
+
+.link-allstyles:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
+  border-color: var(--color-blue);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .link-allstyles {
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 400px) {
   .link-allstyles {
-    margin-left: 6rem;
+    margin: 0 auto;
   }
 }
 
@@ -851,6 +767,23 @@ article {
     justify-content: center;
     gap: var(--spacing-sm);
   }
+  
+  header h1 {
+    letter-spacing: 2px;
+  }
+  
+  main h2 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+  }
+  
+  #files h3 {
+    letter-spacing: 2px;
+  }
 }
 
 /* 9. Added dark theme for footer */
@@ -868,7 +801,8 @@ a:focus {
 
 /* Make all headings bolder */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  font-weight: 900;
+  letter-spacing: 0.02em;
 }
 
 /* Make section headings bolder */
@@ -877,4 +811,668 @@ main h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
   text-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+}
+
+/* 13. Enhanced button grid layout */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: calc(var(--spacing-unit) * 2);
+  margin: calc(var(--spacing-unit) * 3) 0;
+  width: 100%;
+}
+
+.button-grid [class^="link"],
+.button-grid .button {
+  width: 100%;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(0, 123, 255, 0.1);
+  border: 2px solid var(--color-blue);
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+}
+
+.button-grid [class^="link"]:hover,
+.button-grid .button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  background-color: var(--color-blue);
+}
+
+/* 14. Enhanced bottom section design */
+.page-footer {
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    var(--color-background),
+    rgba(0, 123, 255, 0.1)
+  );
+  padding: calc(var(--spacing-unit) * 6) var(--spacing-unit) calc(var(--spacing-unit) * 3);
+  margin-top: calc(var(--spacing-unit) * 6);
+  border-top: 4px solid;
+  border-image: linear-gradient(
+    to right,
+    var(--color-blue),
+    var(--color-red),
+    var(--color-yellow)
+  ) 1;
+}
+
+.page-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-blue),
+    var(--color-red),
+    var(--color-yellow),
+    transparent
+  );
+}
+
+.page-footer .container {
+  display: grid;
+  gap: calc(var(--spacing-unit) * 2);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-footer ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-unit);
+  margin: calc(var(--spacing-unit) * 2) 0;
+}
+
+.page-footer ul a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  background-color: rgba(255, 215, 0, 0.1);
+  border: 1px solid var(--color-yellow);
+  color: var(--color-yellow);
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.page-footer ul a:hover {
+  background-color: var(--color-yellow);
+  color: var(--color-background);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+/* 15. Style improvements for profile section */
+.profile {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 123, 255, 0.1),
+    rgba(255, 59, 48, 0.1)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 2);
+  margin: calc(var(--spacing-unit) * 4) auto;
+}
+
+.profile .container {
+  display: grid;
+  gap: calc(var(--spacing-unit) * 2);
+}
+
+.profile ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-unit);
+}
+
+.profile ul li {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 16. Enhanced styles for CodePen link */
+.link-codepen {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(
+    45deg,
+    var(--color-blue),
+    var(--color-red)
+  );
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  margin: calc(var(--spacing-unit) * 3) auto;
+  transition: all 0.3s ease;
+}
+
+.link-codepen:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* Wrap buttons in container */
+.button-container {
+  display: grid;
+  gap: calc(var(--spacing-unit) * 2);
+  margin: calc(var(--spacing-unit) * 3) 0;
+}
+
+/* Make GitHub link more prominent */
+.link-github {
+  background: linear-gradient(
+    45deg,
+    var(--color-blue),
+    var(--color-red)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: var(--font-weight-bold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.link-github:hover {
+  text-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+}
+
+/* Add container for all styles link */
+.styles-container {
+  text-align: center;
+  margin: calc(var(--spacing-unit) * 4) 0;
+}
+
+/* 17. Enhanced header centering and source files section */
+#files {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+  margin: calc(var(--spacing-unit) * 4) auto;
+  text-align: center;
+}
+
+#files h3 {
+  display: block !important;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  color: var(--color-yellow);
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.4),
+    0 0 40px rgba(255, 215, 0, 0.2);
+  position: relative;
+}
+
+#files h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-blue),
+    var(--color-yellow),
+    var(--color-red)
+  );
+  border-radius: var(--border-radius);
+}
+
+#files .container {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+/* Update source buttons container spacing */
+.source-buttons {
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+@media (max-width: 768px) {
+  #files h3 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+  
+  #files h3::after {
+    width: 60px;
+  }
+}
+
+/* 18. Styled download buttons to match CodePen fork */
+.source-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: calc(var(--spacing-unit) * 2);
+  width: 100%;
+  margin: calc(var(--spacing-unit) * 2) 0;
+}
+
+.source-buttons a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(
+    45deg,
+    var(--color-blue),
+    var(--color-red)
+  );
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  transition: all 0.3s ease;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+.source-buttons a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* 19. Add file type indicators */
+.source-buttons a::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.source-buttons a[href$=".html"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12 18.178l-4.62-1.256-.328-3.544h2.27l.158 1.844 2.52.667 2.52-.667.26-2.866H6.96l-.635-6.678h11.35l-.227 2.21H8.822l.204 2.256h8.217l-.624 6.778L12 18.178zM3 2h18l-1.623 18L12 22l-7.377-2L3 2zm2.188 2L6.49 18.434 12 19.928l5.51-1.494L18.812 4H5.188z'/%3E%3C/svg%3E");
+}
+
+.source-buttons a[href$=".css"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12.01 2.019c-5.495 0-9.991 4.496-9.991 9.991c0 5.494 4.496 9.99 9.991 9.99c5.494 0 9.99-4.496 9.99-9.99c0-5.495-4.446-9.991-9.99-9.991zm0 1.5c4.669 0 8.49 3.821 8.49 8.491c0 4.669-3.821 8.49-8.49 8.49c-4.67 0-8.491-3.821-8.491-8.49c0-4.67 3.821-8.491 8.491-8.491zm-5.995 7.841c.108-.108.228-.167.347-.167c.119 0 .239.059.347.167c.108.108.167.228.167.347c0 .119-.059.239-.167.347c-.108.107-.228.167-.347.167c-.119 0-.239-.06-.347-.167c-.108-.108-.167-.228-.167-.347c0-.119.059-.239.167-.347zm3.326-2.896c.108-.108.228-.167.347-.167c.119 0 .239.059.347.167c.108.108.167.228.167.347c0 .119-.059.239-.167.347c-.108.107-.228.167-.347.167c-.119 0-.239-.06-.347-.167c-.108-.108-.167-.228-.167-.347c0-.119.059-.239.167-.347zm5.995 2.896c.108-.108.228-.167.347-.167c.119 0 .239.059.347.167c.108.108.167.228.167.347c0 .119-.059.239-.167.347c-.108.107-.228.167-.347.167c-.119 0-.239-.06-.347-.167c-.108-.108-.167-.228-.167-.347c0-.119.059-.239.167-.347z'/%3E%3C/svg%3E");
+}
+
+/* 20. Add container styles */
+#files .container {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Update existing styles to work with new structure */
+#files h3 {
+  display: none;
+}
+
+#files .container > *:not(:last-child) {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+@media (max-width: 768px) {
+  .source-buttons {
+    grid-template-columns: 1fr;
+  }
+  
+  #files {
+    padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+  }
+}
+
+/* 23. Enhanced download buttons with color transitions */
+.source-buttons a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(
+    45deg,
+    var(--color-blue),
+    var(--color-red)
+  );
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  transition: all 0.3s ease;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+/* HTML download button hover effect */
+.source-buttons a[href$=".html"]:hover {
+  background: linear-gradient(
+    45deg,
+    var(--color-yellow),
+    var(--color-red)
+  );
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+  border-color: var(--color-yellow);
+}
+
+/* CSS download button hover effect */
+.source-buttons a[href$=".css"]:hover {
+  background: linear-gradient(
+    45deg,
+    var(--color-blue),
+    var(--color-yellow)
+  );
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
+  border-color: var(--color-blue);
+}
+
+/* Add transition effect for the icons */
+.source-buttons a::before {
+  transition: transform 0.3s ease;
+}
+
+.source-buttons a:hover::before {
+  transform: scale(1.2);
+}
+
+/* Add focus states that match hover states */
+.source-buttons a[href$=".html"]:focus {
+  background: linear-gradient(
+    45deg,
+    var(--color-yellow),
+    var(--color-red)
+  );
+  outline: none;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+  border-color: var(--color-yellow);
+}
+
+.source-buttons a[href$=".css"]:focus {
+  background: linear-gradient(
+    45deg,
+    var(--color-blue),
+    var(--color-yellow)
+  );
+  outline: none;
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
+  border-color: var(--color-blue);
+}
+
+/* 24. Enhanced Featured Styles section layout */
+.styles-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--spacing-unit) * 2);
+  width: 100%;
+  max-width: 100%;
+  padding: calc(var(--spacing-unit) * 2);
+  margin: calc(var(--spacing-unit) * 4) auto;
+}
+
+.styles-list li {
+  background: rgba(255, 255, 255, 0.05);
+  padding: calc(var(--spacing-unit) * 2);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.styles-list li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.2);
+}
+
+.styles-list h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: calc(var(--spacing-unit) * 4);
+  width: 100%;
+  color: var(--color-blue);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Center and style the View All Styles link */
+.styles-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: calc(var(--spacing-unit) * 2);
+  margin: calc(var(--spacing-unit) * 4) auto;
+  text-align: center;
+}
+
+.link-allstyles {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 3.5rem;
+  margin: 0 auto;
+  background: linear-gradient(
+    45deg,
+    var(--color-blue),
+    var(--color-yellow)
+  );
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  transform: translateX(0); /* Reset any existing transforms */
+}
+
+.link-allstyles:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
+  border-color: var(--color-blue);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .styles-container {
+    padding: var(--spacing-unit);
+  }
+  
+  .link-allstyles {
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+    margin: 0 auto;
+    transform: none;
+  }
+}
+
+/* Remove any conflicting margin styles */
+@media (max-width: 400px) {
+  .link-allstyles {
+    margin: 0 auto;
+    transform: none;
+  }
+}
+
+/* 25. Enhanced vertical styles list layout */
+.styles-list {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit) * 2);
+  width: 100%;
+  max-width: 800px;
+  padding: calc(var(--spacing-unit) * 2);
+  margin: calc(var(--spacing-unit) * 4) auto;
+}
+
+.styles-list li {
+  background: rgba(255, 255, 255, 0.05);
+  padding: calc(var(--spacing-unit) * 2);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.styles-list li a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 123, 255, 0.1),
+    rgba(255, 215, 0, 0.1)
+  );
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+}
+
+.styles-list li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.2);
+}
+
+.styles-list li a:hover {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 123, 255, 0.2),
+    rgba(255, 215, 0, 0.2)
+  );
+  border-color: var(--color-blue);
+  padding-left: 2rem;
+}
+
+.styles-list h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: calc(var(--spacing-unit) * 4);
+  width: 100%;
+  color: var(--color-blue);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Add author attribution styling */
+.styles-list li a span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .styles-list {
+    padding: var(--spacing-unit);
+  }
+  
+  .styles-list li a {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+  }
+}
+
+/* 26. Updated Style Stage header to match Source Files yellow theme */
+header {
+  position: relative;
+  text-align: center;
+  padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+  background-color: rgba(255, 215, 0, 0.1);
+  color: var(--color-text);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  border-bottom: 3px solid var(--color-yellow);
+}
+
+header h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  margin-bottom: var(--spacing-unit);
+  color: var(--color-yellow);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.4),
+    0 0 40px rgba(255, 215, 0, 0.2);
+  background: linear-gradient(
+    135deg,
+    var(--color-yellow),
+    #ffffff
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-blue),
+    var(--color-yellow),
+    var(--color-red)
+  );
+  border-radius: var(--border-radius);
+}
+
+header h2 {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 700;
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--color-text);
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
 }
